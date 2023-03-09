@@ -1,5 +1,5 @@
 <?php
-require_once("databaseconexion.php");
+require_once("config/databaseconexion.php");
 try{
     $query = "SELECT * FROM user";
     $ajoute =$dbh -> prepare($query);
