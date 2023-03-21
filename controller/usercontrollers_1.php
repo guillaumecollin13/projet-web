@@ -5,8 +5,9 @@ require_once 'Model/userModel.php';
 $uri = $_SERVER["REQUEST_URI"];
 //var_dump($_POST);
 if ($uri === "/connexion") {
+    var_dump($_POST);
     if (isset($_POST["btnEnvoi"])) {
-        chercheUser($dbh);
+        conexionUser($dbh);
     }
     require_once "Templates/users/connexion.php";
 } elseif ($uri == "/inscription") {

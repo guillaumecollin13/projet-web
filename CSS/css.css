@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+
+}
+header{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    
+}
+li{
+    list-style: none; 
+}
+.header{
+    color: aliceblue;
+}
+a:hover{
+    background-color: antiquewhite;
+    box-shadow: 4px 4px 6px  black ;
+    box-shadow: -4px -4px -6px lightgray;
+} 

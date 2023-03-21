@@ -18,22 +18,19 @@ function createUser($dbh)
     }
 }
 
-function chercheUser($dbh)
+function conexionUser($dbh)
 {
     try {
-        $query = "select * from utilisateurs where loginUser=:loginUser and passWordUser=:passWordUser";
-        $chercheUser = $dbh->prepare($query);
-        $chercheUser->execute([
+        $query = "select * from user where pseudoUser = :pseudo and passwordUser = :password";
+        $connecteUser = $dbh->prepare($query);
+        $connecteUser->execute([
             'pseudoUser' => $_POST['pseudo'],
-            'passWordUser' => $_POST['password'],
+            'passwordUser' => $_POST['password']
         ]);
-        $user = $chercheUser->fetch();
-        //var_dump($user);
-        if ($user) {
-            $_SESSION['user'] = $user;
-        }
+        $user = $connecteUser-> fetch();
+        var_dump($user);
     } catch (PDOException $e) {
-        $message = $e->getMessage();
+        $message = $e->getmessage();
         die($message);
     }
 }
