@@ -4,7 +4,7 @@
             <legend>Se connecter</legend>
             <div class="mb-3">
                 <label for="pseudo" class="form-label">pseudonyme</label>
-                <input type="text" placeholder="pseudonyme" class="form-control" id="pseudo" name="pseudo" value="">
+                <input type="text" placeholder="pseudo" class="form-control" id="pseudo" name="pseudo" value="">
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label">Mot de passe</label>

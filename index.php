@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "config/databaseconexion.php";
 ?>
 <!DOCTYPE html>
@@ -14,16 +15,19 @@ require_once "config/databaseconexion.php";
 <body>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="connexion">Connexion</a></li>
+        <li><a href="profil">Page profil</a></li>
+        <li><?php if (isset($_SESSION['user'])) : ?>
+                <a href="deconnexion">Deconnexion</a>
+        </li><?php else : ?><a href="connexion">Connexion</a></li><?php endif ?>
     </ul>
     <main>
         <?php
         require_once "controller/jeuxcontroller.php";
-        require_once "controller/usercontrollers.php"
+        require_once "controller/usercontrollers.php";
         ?>
     </main>
     <footer>
-        <h3>  joli footer  </h3>
+        <h3> joli footer </h3>
     </footer>
 </body>
 

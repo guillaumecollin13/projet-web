@@ -21,14 +21,15 @@ function createUser($dbh)
 function conexionUser($dbh)
 {
     try {
-        $query = "select * from user where pseudoUser = :pseudo and passwordUser = :password";
+        $query = "select * from user where pseudoUser=:pseudoUser and passWordUser=:passWordUser";
         $connecteUser = $dbh->prepare($query);
-        $connecteUser->execute([
+        $connecteUser ->execute([
             'pseudoUser' => $_POST['pseudo'],
-            'passwordUser' => $_POST['password']
+            'passWordUser' => $_POST['password'],
         ]);
-        $user = $connecteUser-> fetch();
+        $user = $connecteUser->fetch();
         var_dump($user);
+        $_SESSION["user"] = $user;
     } catch (PDOException $e) {
         $message = $e->getmessage();
         die($message);
