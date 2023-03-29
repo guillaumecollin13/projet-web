@@ -8,9 +8,9 @@ function createUser($dbh)
         $ajouteUser->execute([
             'userNom' => $_POST['nom'],
             'userPrenom' => $_POST['prenom'],
-            'pseudoUser' => $_POST['pseudo'],
-            'mailUser' => $_POST['email'],
-            'passwordUser' => $_POST['password']
+            'userPseudo' => $_POST['pseudo'],
+            'userMail' => $_POST['email'],
+            'userPassword' => $_POST['password']
         ]);
     } catch (PDOException $e) {
         $message = $e->getmessage();
@@ -24,8 +24,8 @@ function conexionUser($dbh)
         $query = "select * from user where pseudoUser=:pseudoUser and passWordUser=:passWordUser";
         $connecteUser = $dbh->prepare($query);
         $connecteUser ->execute([
-            'pseudoUser' => $_POST['pseudo'],
-            'passWordUser' => $_POST['password'],
+            'userPseudo' => $_POST['pseudo'],
+            'userPassword' => $_POST['password'],
         ]);
         $user = $connecteUser->fetch();
         var_dump($user);
