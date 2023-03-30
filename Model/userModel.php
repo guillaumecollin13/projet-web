@@ -3,7 +3,7 @@
 function createUser($dbh)
 {
     try {
-        $query = "insert into user(userNom, userPrenom, pseudoUser, mailUser, passwordUser) values (:userNom, :userPrenom, :pseudoUser, :mailUser, :passwordUser)";
+        $query = "insert into user(userNom, userPrenom, userPseudo, userMail, userPassword) values (:userNom, :userPrenom, :userPseudo, :userMail, :userPassword)";
         $ajouteUser = $dbh->prepare($query);
         $ajouteUser->execute([
             'userNom' => $_POST['nom'],
