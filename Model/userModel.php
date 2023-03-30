@@ -21,7 +21,7 @@ function createUser($dbh)
 function conexionUser($dbh)
 {
     try {
-        $query = "select * from user where pseudoUser=:pseudoUser and passWordUser=:passWordUser";
+        $query = "select * from user where userPseudo=:userPseudo and userPassword=:userPassword";
         $connecteUser = $dbh->prepare($query);
         $connecteUser ->execute([
             'userPseudo' => $_POST['pseudo'],

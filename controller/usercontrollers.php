@@ -11,7 +11,7 @@ if ($uri === "/connexion") {
         header("location:/");
     }
     require_once "Templates/users/connexion.php";
-} elseif ($uri == "/deconexion") {
+} elseif ($uri == "/deconnexion") {
    session_destroy();
     header("location:/");
 } elseif ($uri == "/inscription") {
