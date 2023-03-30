@@ -24,7 +24,17 @@ if ($uri === "/connexion") {
         var_dump($messageErreur);
     }
     require_once "Templates/users/inscription.php";
+}elseif ($uri === "/profil"){ {
+    if(isset($_POST["btnEnvoi"])){
+
+        updateUser($pdo);
+        updateSession($pdo);
+        header('location:/profil');
+        }
+    }
+    require_once "Templates/users/inscriptionOrEditProfil.php";
 }
+
 
 function verifEmpty()
 {
