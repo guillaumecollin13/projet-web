@@ -1,5 +1,6 @@
 <?php
 session_start();
+ var_dump($_SESSION);
 require_once "config/databaseconexion.php";
 ?>
 <!DOCTYPE html>
@@ -19,6 +20,7 @@ require_once "config/databaseconexion.php";
         <li><?php if (isset($_SESSION['user'])) : ?>
                 <a href="deconnexion">Deconnexion</a>
         </li><?php else : ?><a href="connexion">Connexion</a></li><?php endif ?>
+           
     </ul>
     <main>
         <?php

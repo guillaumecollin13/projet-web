@@ -35,32 +35,19 @@ function conexionUser($dbh)
         die($message);
     }
 }
-function updateUser($pdo){
-    try {
-        $query = "update utilisateur set utilisateurLastname = :utilisateurLastname, utilisateurSurname = :utilisateurSurname, utilisateurMdp = :utilisateurMdp where utilisateurID = :utilisateurID";
-        $changeUser = $pdo->prepare($query);
-        $changeUser->execute([
-            'utilisateurLastname' => $_POST['nom'],
-            'utilisateurSurname' => $_POST['prenom'],
-            'utilisateurMdp' => $_POST['mot_de_passe'],
-            'utilisateurID' =>  $_SESSION['user'] -> utilisateurID
-        ]);
-    } catch (PDOException $e) {
-        $message = $e->getMessage();
-        die($message);
-    }
-    }
-    function updateSession($pdo){
+    function modifyUser($dbh)
+    {
         try {
-            $query = "select * FROM utilisateur WHERE utilisateurID = :utilisateurID";
-            $chercheUser = $pdo->prepare($query);
-            $chercheUser->execute([
-                'utilisateurID' => $_SESSION['user'] -> utilisateurID
+            $query = "update user set userNom = :userNom, userPrenom = :userPrenom, userPseudo = :userPseudo, userPassword = :userPassword)";
+            $ajouteUser = $dbh->prepare($query);
+            $ajouteUser->execute([
+                'userNom' => $_POST['nom'],
+                'userPrenom' => $_POST['prenom'],
+                'userPseudo' => $_POST['pseudo'],
+                'userPassword' => $_POST['password']
             ]);
-            $user = $chercheUser -> fetch();
-                $_SESSION['user']=$user;
         } catch (PDOException $e) {
-            $message = $e->getMessage();
+            $message = $e->getmessage();
             die($message);
         }
     }

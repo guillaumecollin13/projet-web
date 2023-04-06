@@ -14,25 +14,24 @@ if ($uri === "/connexion") {
 } elseif ($uri == "/deconnexion") {
     session_destroy();
     header("location:/");
+} elseif ($uri == "/profil") {
+    require_once "Templates/users/profil.php";
+} elseif ($uri == "/modifyprofil") {
+    if (isset($_POST["btnEnvoi"])) {
+        modifyUser($dbh);
+        header("location:/profil");
+    }
+    require_once "Templates/users/inscriptionoredit.php";
 } elseif ($uri == "/inscription") {
     if (isset($_POST["btnEnvoi"])) {
-        $messageErreur=verifEmpty();
+        $messageErreur = verifEmpty();
         if (!isset($messageErreur)) {
-            //createUser($dbh);
-            //header("location:/connexion");
+            createUser($dbh);
+            header("location:/connexion");
         }
         var_dump($messageErreur);
     }
-    require_once "Templates/users/inscription.php";
-}elseif ($uri === "/profil"){ {
-    if(isset($_POST["btnEnvoi"])){
-
-        updateUser($pdo);
-        updateSession($pdo);
-        header('location:/profil');
-        }
-    }
-    require_once "Templates/users/inscriptionOrEditProfil.php";
+    require_once "Templates/users/inscriptionoredit.php";
 }
 
 
@@ -41,12 +40,12 @@ function verifEmpty()
     foreach ($_POST as $key => $value) {
         var_dump($key . ' => ' . $value);
         if (empty($value)) {
-            $messageErreur[$key] = "votre ". $key ." est vide";
+            $messageErreur[$key] = "votre " . $key . " est vide";
         }
     }
     if (isset($messageErreur)) {
         return $messageErreur;
-    }else {
+    } else {
         return false;
     }
 }
