@@ -11,12 +11,15 @@ require_once "config/databaseconexion.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
-    <ul>
+    <ul class="flex space-around">
         <li><a href="/">Home</a></li>
-        <li><a href="profil">Page profil</a></li>
+        <?php if (isset($_SESSION['user'])) : ?>
+            <li><a href="profil">Page profil</a>
+        </li><?php endif ?></li>
         <li><?php if (isset($_SESSION['user'])) : ?>
                 <a href="deconnexion">Deconnexion</a>
         </li><?php else : ?><a href="connexion">Connexion</a></li><?php endif ?>
