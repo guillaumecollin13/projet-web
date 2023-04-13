@@ -4,3 +4,4 @@
 <p><?= $_SESSION["user"] -> userPseudo ?></p>
 <p><?= $_SESSION["user"] -> userPassword ?></p>
 <a href="modifyprofil">modifier</a>
+<a href="deletprofil">suprimmer</a>

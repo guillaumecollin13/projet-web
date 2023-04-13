@@ -11,9 +11,11 @@ if ($uri === "/connexion") {
         header("location:/");
     }
     require_once "Templates/users/connexion.php";
+
 } elseif ($uri == "/deconnexion") {
     session_destroy();
     header("location:/");
+
 } elseif ($uri == "/profil") {
     require_once "Templates/users/profil.php";
 } elseif ($uri == "/modifyprofil") {
@@ -22,18 +24,24 @@ if ($uri === "/connexion") {
         header("location:/profil");
     }
     require_once "Templates/users/inscriptionoredit.php";
+
 } elseif ($uri == "/inscription") {
     if (isset($_POST["btnEnvoi"])) {
-        $messageErreur = verifEmpty();
-        if (!isset($messageErreur)) {
+       $messageErreur = verifEmpty();
+       if (!isset($messageErreur)) {
             createUser($dbh);
             header("location:/connexion");
+            var_dump($_post);
         }
         var_dump($messageErreur);
     }
     require_once "Templates/users/inscriptionoredit.php";
-}
 
+} elseif ($uri == "/deletprofil") {
+    deleteUser($dbh);
+    session_destroy();
+    header("location:/");
+}
 
 function verifEmpty()
 {

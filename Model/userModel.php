@@ -7,10 +7,10 @@ function createUser($dbh)
         $ajouteUser = $dbh->prepare($query);
         $ajouteUser->execute([
             'userNom' => $_POST['nom'],
-            'userPrenom' => $_POST['prenom'],
-            'userPseudo' => $_POST['pseudo'],
-            'userMail' => $_POST['email'],
-            'userPassword' => $_POST['password']
+            'userPrenom' => $_POST['Prenom'],
+            'userPseudo' => $_POST['Pseudo'],
+            'userMail' => $_POST['Mail'],
+            'userPassword' => $_POST['Password']
         ]);
     } catch (PDOException $e) {
         $message = $e->getmessage();
@@ -35,19 +35,34 @@ function conexionUser($dbh)
         die($message);
     }
 }
-    function modifyUser($dbh)
-    {
-        try {
-            $query = "update user set userNom = :userNom, userPrenom = :userPrenom, userPseudo = :userPseudo, userPassword = :userPassword)";
-            $ajouteUser = $dbh->prepare($query);
-            $ajouteUser->execute([
-                'userNom' => $_POST['nom'],
-                'userPrenom' => $_POST['prenom'],
-                'userPseudo' => $_POST['pseudo'],
-                'userPassword' => $_POST['password']
-            ]);
-        } catch (PDOException $e) {
-            $message = $e->getmessage();
-            die($message);
-        }
+
+function modifyUser($dbh)
+{
+    try {
+        $query = "update user set userNom = :userNom, userPrenom = :userPrenom, userPseudo = :userPseudo, userPassword = :userPassword where userId = :userId";
+        $ajouteUser = $dbh->prepare($query);
+        $ajouteUser->execute([
+            'userNom' => $_POST['nom'],
+            'userPrenom' => $_POST['Prenom'],
+            'userPseudo' => $_POST['Pseudo'],
+            'userPassword' => $_POST['Password'],
+            'userId' => $_SESSION['user'] -> userId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
     }
+}
+function deleteUser($dbh)
+{
+    try {
+        $query = "delete from user where userId = :userId";
+        $ajouteUser = $dbh->prepare($query);
+        $ajouteUser->execute([
+            'userId' => $_SESSION['user'] -> userId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}
