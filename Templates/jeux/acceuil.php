@@ -1,4 +1,3 @@
 <h1>liste jeux a vendre </h1>
 
-
-<a href=""></a>
+<?php foreach ($variable as $key => $value) ?>
