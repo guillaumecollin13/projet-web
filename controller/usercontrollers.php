@@ -16,6 +16,21 @@ if ($uri === "/connexion") {
     session_destroy();
     header("location:/");
 
+} elseif ($uri == "/inscription") {
+    if (isset($_POST["btnEnvoi"])) {
+        var_dump("coucou"); 
+       $messageErreur = verifEmpty(); 
+       var_dump($messageErreur); 
+       if (!$messageErreur) {
+        var_dump("coucou"); 
+        createUser($dbh);
+            header("location:/connexion");
+          
+        }
+        var_dump($messageErreur);
+    }
+    require_once "Templates/users/inscriptionoredit.php";
+
 } elseif ($uri == "/profil") {
     require_once "Templates/users/profil.php";
 } elseif ($uri == "/modifyprofil") {
@@ -25,17 +40,7 @@ if ($uri === "/connexion") {
     }
     require_once "Templates/users/inscriptionoredit.php";
 
-} elseif ($uri == "/inscription") {
-    if (isset($_POST["btnEnvoi"])) {
-       $messageErreur = verifEmpty();
-       if (!isset($messageErreur)) {
-            createUser($dbh);
-            header("location:/connexion");
-            var_dump($_post);
-        }
-        var_dump($messageErreur);
-    }
-    require_once "Templates/users/inscriptionoredit.php";
+
 
 } elseif ($uri == "/deletprofil") {
     deleteUser($dbh);
