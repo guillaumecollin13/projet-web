@@ -4,12 +4,12 @@
         <legend><?php if(isset($_SESSION["user"])) : ?> modifier profil <?php else : ?>Inscription<?php endif?></legend>
         <div class="mb-3">
             <label for="Nom" class="form-label">Nom</label>
-            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="nom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userNom ?><?php endif?>">
+            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="nom" value="<?php if(isset($_SESSION["user"])) :?><?= $_SESSION["user"] ->userNom ?><?php endif?>"<?php if(isset($_SESSION["user"])) : ?>disabled<?php endif?>>
             <?php if(isset($messageErreur["nom"])): ?> <small><?= $messageErreur["nom"]?></small><?php endif?>
         </div>
         <div class="mb-3">
             <label for="Prenom" class="form-label">Prenom</label>
-            <input type="text" placeholder="Prenom" class="form-control" id="Prenom" name="Prenom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userPrenom ?><?php endif?>">
+            <input type="text" placeholder="Prenom" class="form-control" id="Prenom" name="Prenom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userPrenom ?><?php endif?>"<?php if(isset($_SESSION["user"])) : ?>disabled<?php endif?>>
             <?php if(isset($messageErreur["Prenom"])): ?> <small><?= $messageErreur["Prenom"]?></small><?php endif?>
         </div>
         <div class="mb-3">
@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3">
             <label for="Password" class="form-label">mot de passe</label>
-            <input type="password" placeholder="Password" class="form-control" id="Password" name="Password" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userPassword ?><?php endif?>">
+            <input type="<?php if(isset($_SESSION["user"])) : ?>text<?php else :?>password<?php endif?>" placeholder="Password" class="form-control" id="Password" name="Password" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userPassword ?><?php endif?>">
             <?php if(isset($messageErreur["Password"])): ?> <small><?= $messageErreur["Password"]?></small><?php endif?>
         </div>
         <div>

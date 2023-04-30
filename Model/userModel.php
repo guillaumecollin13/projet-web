@@ -23,12 +23,13 @@ function conexionUser($dbh)
     try {
         $query = "select * from user where userPseudo=:userPseudo and userPassword=:userPassword";
         $connecteUser = $dbh->prepare($query);
-        $connecteUser ->execute([
+        $connecteUser->execute([
             'userPseudo' => $_POST['pseudo'],
             'userPassword' => $_POST['password'],
         ]);
         $user = $connecteUser->fetch();
-
+        //var_dump($user);
+        $_SESSION['user']=$user;
     } catch (PDOException $e) {
         $message = $e->getmessage();
         die($message);
