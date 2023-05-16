@@ -20,6 +20,9 @@ require_once "config/databaseconexion.php";
         <?php if (isset($_SESSION['user'])) : ?>
             <li><a href="profil">Page profil</a>
         </li><?php endif ?></li>
+        <?php if (isset($_SESSION['user'])) : ?>
+            <li><a href="ajouterJeux">ajouter un Jeux a vendre</a>
+        </li><?php endif ?></li>
         <li><?php if (isset($_SESSION['user'])) : ?>
                 <a href="deconnexion">Deconnexion</a>
         </li><?php else : ?><a href="connexion">Connexion</a></li><?php endif ?>

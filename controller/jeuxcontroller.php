@@ -12,4 +12,6 @@ if ($uri === "/index.php" || $uri === "/") {
     $jeu = selectOneJeu($dbh);
     var_dump($jeu);
     require_once "Templates/jeux/voirjeux.php";
+} elseif ($uri === "/ajouterJeux") {
+    require_once "Templates/jeux/createOrEditjeu.php";
 }
