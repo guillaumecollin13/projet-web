@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Model/userModel.php';
+require_once 'Model/jeuxModel.php';
 
 $uri = $_SERVER["REQUEST_URI"];
 //var_dump($_POST);
@@ -44,6 +45,7 @@ if ($uri === "/connexion") {
 
 } elseif ($uri == "/deletprofil") {
     deleteUser($dbh);
+    deletealljeuxuser($dbh);
     session_destroy();
     header("location:/");
 }

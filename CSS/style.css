@@ -1,0 +1,172 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-color: #272727;
+}
+
+main {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+nav {
+    align-items: center;
+    background-color: black;
+    height: 65px;
+}
+
+.navbar-left img {
+    height: 50px;
+    margin-left: 1%;
+}
+
+.navbar-right {
+    margin-right: 1%;
+}
+
+.navbar-right input[type="search"] {
+    border: none;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.navbar-right button {
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.header-image {
+  position: relative;
+  z-index: 0;
+  height: 400px;
+  background-image: url(https://www.nintendo-difference.com/wp-content/uploads/oldsite/37170/box/9343091b6e25f9f4a923c5180eb57385.jpg);
+  width: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-line {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: -1;
+}
+
+.card {
+  margin-top: 2%;
+}
+
+.jeuxImage {
+  height: 218px;
+  width: 380px;
+  border-radius: 32px;
+  margin-bottom: 1%;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imgjeuhover:hover {
+  width: 456px;
+  height: 262px;
+}
+
+.img-achat {
+  height: 500px;
+  width: 900px;
+  border-radius: 32px;
+  margin-bottom: 1%;
+}
+
+.glassMorph {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.49);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(7.6px);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+  
+.image {
+  flex: 1;
+  max-width: 100%;
+  margin-right: 20px;
+}
+  
+.image img {
+  max-width: 100%;
+  height: auto;
+}
+  
+.info {
+  flex: 2;
+}
+
+.info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 16px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.price {
+  flex: 1;
+}
+
+.price span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button {
+  flex: 1;
+  text-align: right;
+}
+
+.button button {
+  background-color: #4285f4;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background-color: #3367d6;
+}

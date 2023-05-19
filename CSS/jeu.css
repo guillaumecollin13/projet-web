@@ -1,0 +1,58 @@
+.jeu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.jeu img {
+    height: 500px;
+    width: 900px;
+    border-radius: 32px;
+    margin-bottom: 10px;
+}
+
+.jeu h2 {
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.jeu p {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.jeu span {
+    font-weight: bold;
+}
+
+.jeu .description {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.blocjeu {
+    border: solid;
+    padding: 15px;
+}
+
+.achat {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .achat:hover {
+    background-color: #3e8e41;
+  }

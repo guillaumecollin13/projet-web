@@ -1,15 +1,16 @@
-<div class="">
-        <h2> <?= $jeu->jeuxNom ?> </h2>
-        <img src="<?= $jeu->jeuxImage ?>" alt="photo de promo du jeux">
-        <p><span>licence : <?= $jeu->licence  ?></span></p>
-        <p><span>editeur : <?= $jeu->editeurNom ?></span></p>
-
-        <p><?= $jeu->jeuxPrix  ?>€</p>
-        <a href="voirjeux?jeuxID=<?= $jeu->jeuxID ?>">voir le jeux</a></p>
-        <p><?= $jeu->dateDeSortie  ?></p>
-        <p><?= $jeu->jeuxStock  ?></p>
-        <p><?= $jeu->jeuxLimiteAge ?></p>
-        <p><?= $jeu->description?></p>
-    </div>
-
-
+<div class="jeu">
+  <div>
+    <img src="<?= $jeu->jeuxImage ?>" alt="photo de promo du jeu">
+  </div>
+  <div class="blocjeu colorWhite">
+    <h2><?= $jeu->jeuxNom ?></h2>
+    <p><span>licence :</span> <?= $jeu->licence ?></p>
+    <p><span>editeur :</span> <?= $jeu->editeurNom ?></p>
+    <p><span>Prix :</span> <?= $jeu->jeuxPrix ?>€</p>
+    <p><span>Date de sortie :</span> <?= $jeu->dateDeSortie ?></p>
+    <p><span>En stock :</span> <?= $jeu->jeuxStock ?></p>
+    <p><span>Limite d'age :</span> <?= $jeu->jeuxLimiteAge ?></p>
+    <p class="description"><?= $jeu->description?></p>
+  </div>
+  <a href="acheter" class="achat">Acheter maintenant</a>
+</div>

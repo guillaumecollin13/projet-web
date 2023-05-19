@@ -1,22 +1,15 @@
-<div class="flex space-evenly wrap">
+<div class="flex center">
+    <h1 class="colorWhite">Se connecter</h1>
+</div>     
+<div class="flex center">
     <form method="post" action="">
-        <fieldset>
-            <legend>Se connecter</legend>
-            <div class="mb-3">
-                <label for="pseudo" class="form-label">pseudonyme</label>
-                <input type="text" placeholder="pseudo" class="form-control" id="pseudo" name="pseudo" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Password" class="form-label">Mot de passe</label>
-                <input type="password" placeholder="password" class="form-control" id="Password" name="password" value="">
-            </div>
-            <div>
-                <button name="btnEnvoi" class="btn btn-primary">Envoi</button>
-            </div>
-        </fieldset>
+        <label for="pseudonyme">Pseudonyme:</label>
+        <input type="text" id="pseudo" name="pseudo" value="">
+        <label for="motdepasse">Mot de passe:</label>
+        <input type="password" id="Password" name="password" value="">
+        <button type="submit" name="btnEnvoi" class="">Se connecter</button>
+        <div class="flex center">
+            <h3 class="text-danger"><a href="inscription" class="link">Pas encore inscrit ?</a></h3>
+        </div>
     </form>
-    <div>
-        <h3 class="text-danger">Pas encore inscrit ?</h3>
-        <a href="inscription" class="btn btn-secondary">Clique</a>
-    </div>
-</div>
+</div>     
