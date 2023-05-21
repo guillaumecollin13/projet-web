@@ -39,7 +39,7 @@ function conexionUser($dbh)
 function modifyUser($dbh)
 {
     try {
-        $query = "update user set userNom = :userNom, userPrenom = :userPrenom, userPseudo = :userPseudo, userPassword = :userPassword where userId = :userId";
+        $query = "update user set userNom = :userNom, userPrenom = :userPrenom, userPseudo =:userPseudo , userPassword =:userPassword where userId =:userId ";
         $ajouteUser = $dbh->prepare($query);
         $ajouteUser->execute([
             'userNom' => $_POST['Nom'],
@@ -66,3 +66,4 @@ function deleteUser($dbh)
         die($message);
     }
 }
+

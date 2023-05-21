@@ -48,3 +48,15 @@ function addplateforme($dbh,$jeuxId,$plateformeId){
         die($message);
     }
 }
+function deletePlateformeJeux($dbh){
+    try {
+        $query = 'delete from plateforme_jeux where  jeuxId= :jeuxId';
+        $deleteOne = $dbh->prepare($query);
+        $deleteOne->execute([
+            'jeuxId'=> $_GET["jeuxID"]
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}

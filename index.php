@@ -41,6 +41,11 @@
                         <li><a href="createJeux" class="colorWhite link"> creer jeux</a></li>
                     <?php endif ?>
                 </ul>
+                <ul>
+                <?php if (isset($_SESSION['user'])): ?>
+                        <li><a href="/mesjeux" class="colorWhite link"> mes jeux</a></li>
+                    <?php endif ?>
+                </ul>
             <div class="navbar-right flex">
                 <form action="#" method="get">
                     <input type="search" name="q" placeholder="Rechercher...">
@@ -60,5 +65,5 @@
             require_once "controller/usercontrollers.php";
         ?>
     </main>
-</body>
+</body> 
 </html>

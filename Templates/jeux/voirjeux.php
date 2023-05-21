@@ -11,6 +11,17 @@
     <p><span>En stock :</span> <?= $jeu->jeuxStock ?></p>
     <p><span>Limite d'age :</span> <?= $jeu->jeuxLimiteAge ?></p>
     <p class="description"><?= $jeu->description?></p>
+    <p><span>plateforme</span></p>
+    <table>
+      <tr>
+        <th>plateforme</th>
+      </tr>
+      <?php foreach ($plateformes as $plateforme):?>
+        <tr> 
+        <th><?= $plateforme->plateformeNom?></p></th>
+      </tr>
+      <?php endforeach?>
+    </table>
   </div>
   <a href="acheter" class="achat">Acheter maintenant</a>
 </div>

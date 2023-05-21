@@ -48,12 +48,54 @@ function addJeux($dbh){
         die($message);
     }
 }
-function deletealljeuxuser($dbh){
+function deleteAlljeuxUser($dbh){
     try {
         $query = 'delete from jeuxenvente where userId=:userId';
-        $deleteall = $dbh->prepare($query);
-        $deleteall->execute([
+        $deleteAll = $dbh->prepare($query);
+        $deleteAll->execute([
             'userId' => $_SESSION['user'] -> userId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}
+function selectsuerjeux($dbh)
+{
+    try {
+        $query = "select * from jeuxEnVente inner JOIN licence ON jeuxenvente.licenceID = licence.licenceID inner join editeur on jeuxenvente.editeurID = editeur.editeurID where userId = :userId ";
+        $selectJeu = $dbh->prepare($query);
+        $selectJeu ->execute([
+            'userId'=>$_SESSION['user'] -> userId
+        ]);
+        $jeu = $selectJeu->fetchall();
+        return $jeu;
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}
+function selectPlateformeJeu($dbh){
+
+    try {
+        $query = "select * from plateforme where plateformeID in (select plateformeId from plateforme_jeux where jeuxId= :jeuxId);";
+        $selectPlateforme = $dbh->prepare($query);
+        $selectPlateforme ->execute([
+            'jeuxId'=> $_GET["jeuxID"]
+        ]);
+        $plateformes = $selectPlateforme->fetchall();
+        return $plateformes;
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}
+function deleteJeux($dbh){
+    try {
+        $query = 'delete from jeuxenvente where  jeuxId= :jeuxId';
+        $deleteOne = $dbh->prepare($query);
+        $deleteOne->execute([
+            'jeuxId'=> $_GET["jeuxID"]
         ]);
     } catch (PDOException $e) {
         $message = $e->getmessage();

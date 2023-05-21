@@ -50,6 +50,7 @@ if ($uri === "/connexion") {
     header("location:/");
 }
 
+
 function verifEmpty()
 {
     foreach ($_POST as $key => $value) {

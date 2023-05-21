@@ -3,10 +3,10 @@
 </div> 
 <div class="flex center">  
     <form method="post" action="">
-        <div class="">
+    <div class="m">
             <label for="Nom" class="">Nom</label>
-            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="nom" value="<?php if(isset($_SESSION["user"])) :?><?= $_SESSION["user"] ->userNom ?><?php endif?>">
-            <?php if(isset($messageErreur["nom"])): ?> <small><?= $messageErreur["nom"]?></small><?php endif?>
+            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="Nom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"] ->userNom ?><?php endif?>">
+            <?php if(isset($messageErreur["Nom"])): ?> <small><?= $messageErreur["Nom"]?></small><?php endif?>
         </div>
         <div class="m">
             <label for="Prenom" class="">Prenom</label>
