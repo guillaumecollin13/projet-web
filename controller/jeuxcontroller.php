@@ -11,30 +11,48 @@ if ($uri === "/index.php" || $uri === "/") {
 } elseif (isset($_GET["jeuxID"]) && $uri === "/voirjeux?jeuxID=" . $_GET["jeuxID"]) {
     //var_dump($_GET);
     $jeu = selectOneJeu($dbh);
-    $plateformes=selectPlateformeJeu($dbh);
+    $plateformes = selectPlateformeJeu($dbh);
     var_dump($jeu);
     require_once "Templates/jeux/voirjeux.php";
 } elseif ($uri === "/createJeux") {
- if (isset($_POST["btnEnvoi"])) {
-    //var_dump($_POST);
-    addJeux($dbh);
-    $jeuxId = $dbh->lastInsertId();
-    for ($i=0; $i <count($_POST["plateforrme"]) ; $i++) { 
-      $plateformeId = $_POST["plateforrme"][$i];
-        addplateforme($dbh,$jeuxId,$plateformeId);
+    if (isset($_POST["btnEnvoi"])) {
+        //var_dump($_POST);
+        addJeux($dbh);
+        $jeuxId = $dbh->lastInsertId();
+        for ($i = 0; $i < count($_POST["plateforrme"]); $i++) {
+            $plateformeId = $_POST["plateforrme"][$i];
+            addplateforme($dbh, $jeuxId, $plateformeId);
+        }
+        header("/mesjeux");
     }
-    header("/mesjeux");
- }
     $licences = selectallLicence($dbh);
     $editeurs = selectallediteur($dbh);
     $plateformes = selectallplateforme($dbh);
     require_once('Templates/jeux/createOrEditjeu.php');
-}elseif ($uri == "/mesjeux") {
-    $jeux=selectsuerjeux($dbh);
+} elseif ($uri == "/mesjeux") {
+    $jeux = selectsuerjeux($dbh);
     require_once "Templates/jeux/acceuil.php";
-}elseif (isset($_GET["jeuxID"]) && $uri === "/deleteJeux?jeuxID=" . $_GET["jeuxID"]) {
+} elseif (isset($_GET["jeuxID"]) && $uri === "/deleteJeux?jeuxID=" . $_GET["jeuxID"]) {
     //var_dump($_GET);
-   deletePlateformeJeux($dbh); 
-   deleteJeux($dbh); 
-   header("/mesjeux");
+    deletePlateformeJeux($dbh);
+    deleteJeux($dbh);
+    header("/mesjeux");
+} elseif (isset($_GET["jeuxID"]) && $uri === "/modifyJeux?jeuxID=" . $_GET["jeuxID"]) {
+    //var_dump($_GET);
+    if (isset($_POST["btnEnvoi"])) {
+        //var_dump($_POST);
+        updateJeux($dbh);
+        deletePlateformeJeux($dbh);
+        for ($i = 0; $i < count($_POST["plateforrme"]); $i++) {
+            $plateformeId = $_POST["plateforrme"][$i];
+            addplateforme($dbh, $_GET["jeuxID"], $plateformeId);
+        }
+        header("/mesjeux");
+    }
+        $jeu = selectOneJeu($dbh);
+        $licences = selectallLicence($dbh);
+        $editeurs = selectallediteur($dbh);
+        $plateformesjeux = selectPlateformeJeu($dbh);
+        $plateformes = selectallplateforme($dbh);
+        require_once('Templates/jeux/createOrEditjeu.php');
 }

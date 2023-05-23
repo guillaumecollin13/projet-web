@@ -48,6 +48,28 @@ function addJeux($dbh){
         die($message);
     }
 }
+function updateJeux($dbh) {
+    try {
+        $query = "update jeuxenvente set jeuxNom=:jeuxNom, jeuxLimiteAge=:jeuxLimiteAge, dateDeSortie=:dateDeSortie, jeuxPrix=:jeuxPrix, jeuxStock=:jeuxStock, description=:description, jeuxImage=:jeuxImage, userId=:userId, licenceID=:licenceID, editeurID=:editeurID where jeuxId=:jeuxId";
+        $addJeux = $dbh->prepare($query);
+        $addJeux->execute([
+            'jeuxNom' => $_POST['jeuNom'],
+            'jeuxLimiteAge' => $_POST['jeuxLimiteDage'],
+            'dateDeSortie' => $_POST['dateSortie'],
+            'jeuxPrix' => $_POST['jeuxprix'],
+            'jeuxStock' => $_POST['stock'],
+            'description'=>$_POST['description'],
+            'jeuxImage'=>$_POST['image'],
+            'licenceID'=>$_POST['licence'],
+            'editeurID'=>$_POST['Editeur'],
+            'userId' => $_SESSION['user'] -> userId,
+            'jeuxId'=> $_GET['jeuxID']
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getmessage();
+        die($message);
+    }
+}
 function deleteAlljeuxUser($dbh){
     try {
         $query = 'delete from jeuxenvente where userId=:userId';
