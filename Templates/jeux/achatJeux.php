@@ -4,9 +4,13 @@
   </div>
   <div class="blocjeu colorWhite">
     <h2><?= $jeu->jeuxNom ?></h2>
+    <p><span>licence :</span> <?= $jeu->licence ?></p>
+    <p><span>editeur :</span> <?= $jeu->editeurNom ?></p>
     <p><span>Prix :</span> <?= $jeu->jeuxPrix ?>€</p>
+    <p><span>Date de sortie :</span> <?= $jeu->dateDeSortie ?></p>
     <p><span>En stock :</span> <?= $jeu->jeuxStock ?></p>
     <p><span>Limite d'age :</span> <?= $jeu->jeuxLimiteAge ?></p>
+    <p class="description"><?= $jeu->description?></p>
     <p><span>plateforme</span></p>
     <table>
       <tr>
@@ -19,6 +23,5 @@
       <?php endforeach?>
     </table>
   </div>
-  <a href="acheterJeux?jeuxID=<?= $jeu->jeuxID ?>" class="achat">Acheter maintenant</a>
-  
+  <a href="acheter" class="achat">Acheter maintenant</a>
 </div>

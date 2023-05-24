@@ -12,7 +12,7 @@ if ($uri === "/index.php" || $uri === "/") {
     //var_dump($_GET);
     $jeu = selectOneJeu($dbh);
     $plateformes = selectPlateformeJeu($dbh);
-    var_dump($jeu);
+    //var_dump($jeu);
     require_once "Templates/jeux/voirjeux.php";
 } elseif ($uri === "/createJeux") {
     if (isset($_POST["btnEnvoi"])) {
@@ -55,4 +55,11 @@ if ($uri === "/index.php" || $uri === "/") {
         $plateformesjeux = selectPlateformeJeu($dbh);
         $plateformes = selectallplateforme($dbh);
         require_once('Templates/jeux/createOrEditjeu.php');
-}
+require_once('Templates/jeux/createOrEditjeu.php');
+} elseif (isset($_GET["jeuxID"]) && $uri === "acheterJeux?jeuxID=" . $_GET["jeuxID"]) {
+    //var_dump($_GET);
+    $jeu = selectOneJeu($dbh);
+    $plateformes = selectPlateformeJeu($dbh);
+    //var_dump($jeu);
+    require_once "Templates/jeux/voirjeux.php";
+}   

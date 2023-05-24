@@ -32,15 +32,15 @@ function addJeux($dbh){
         $query = "insert into jeuxenvente (jeuxNom, jeuxLimiteAge, dateDeSortie, jeuxPrix, jeuxStock, description, jeuxImage, userId, licenceID, editeurID) values(:jeuxNom, :jeuxLimiteAge, :dateDeSortie, :jeuxPrix, :jeuxStock, :description, :jeuxImage, :userId, :licenceID, :editeurID)";
         $addJeux = $dbh->prepare($query);
         $addJeux->execute([
-            'jeuxNom' => $_POST['jeuNom'],
-            'jeuxLimiteAge' => $_POST['jeuxLimiteDage'],
-            'dateDeSortie' => $_POST['dateSortie'],
-            'jeuxPrix' => $_POST['jeuxprix'],
-            'jeuxStock' => $_POST['stock'],
-            'description'=>$_POST['description'],
-            'jeuxImage'=>$_POST['image'],
-            'licenceID'=>$_POST['licence'],
-            'editeurID'=>$_POST['Editeur'],
+            'jeuxNom' => htmlentities($_POST['jeuNom']),
+            'jeuxLimiteAge' => htmlentities($_POST['jeuxLimiteDage']),
+            'dateDeSortie' => htmlentities($_POST['dateSortie']),
+            'jeuxPrix' => htmlentities($_POST['jeuxprix']),
+            'jeuxStock' => htmlentities($_POST['stock']),
+            'description'=>htmlentities($_POST['description']),
+            'jeuxImage'=>htmlentities($_POST['image']),
+            'licenceID'=>htmlentities($_POST['licence']),
+            'editeurID'=>htmlentities($_POST['Editeur']),
             'userId' => $_SESSION['user'] -> userId
         ]);
     } catch (PDOException $e) {
@@ -53,15 +53,15 @@ function updateJeux($dbh) {
         $query = "update jeuxenvente set jeuxNom=:jeuxNom, jeuxLimiteAge=:jeuxLimiteAge, dateDeSortie=:dateDeSortie, jeuxPrix=:jeuxPrix, jeuxStock=:jeuxStock, description=:description, jeuxImage=:jeuxImage, userId=:userId, licenceID=:licenceID, editeurID=:editeurID where jeuxId=:jeuxId";
         $addJeux = $dbh->prepare($query);
         $addJeux->execute([
-            'jeuxNom' => $_POST['jeuNom'],
-            'jeuxLimiteAge' => $_POST['jeuxLimiteDage'],
-            'dateDeSortie' => $_POST['dateSortie'],
-            'jeuxPrix' => $_POST['jeuxprix'],
-            'jeuxStock' => $_POST['stock'],
-            'description'=>$_POST['description'],
-            'jeuxImage'=>$_POST['image'],
-            'licenceID'=>$_POST['licence'],
-            'editeurID'=>$_POST['Editeur'],
+            'jeuxNom' => htmlentities($_POST['jeuNom']),
+            'jeuxLimiteAge' => htmlentities($_POST['jeuxLimiteDage']),
+            'dateDeSortie' =>htmlentities( $_POST['dateSortie']),
+            'jeuxPrix' =>htmlentities( $_POST['jeuxprix']),
+            'jeuxStock' => htmlentities($_POST['stock']),
+            'description'=>htmlentities($_POST['description']),
+            'jeuxImage'=>htmlentities($_POST['image']),
+            'licenceID'=>htmlentities($_POST['licence']),
+            'editeurID'=>htmlentities($_POST['Editeur']),
             'userId' => $_SESSION['user'] -> userId,
             'jeuxId'=> $_GET['jeuxID']
         ]);

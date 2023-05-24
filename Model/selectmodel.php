@@ -40,8 +40,8 @@ function addplateforme($dbh,$jeuxId,$plateformeId){
         $query = "insert into plateforme_jeux (plateformeID, jeuxId) values (:plateformeID,:jeuxId)";
         $addplateforme = $dbh->prepare($query);
         $addplateforme ->execute([
-            "plateformeID"  => $plateformeId,
-            "jeuxId" => $jeuxId
+            "plateformeID"  => htmlentities($plateformeId),
+            "jeuxId" => htmlentities($jeuxId)
         ]);
     } catch (PDOException $e) {
         $message = $e->getmessage();

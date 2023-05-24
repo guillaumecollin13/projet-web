@@ -10,3 +10,4 @@ try {
     die('erreur : '.$e -> getMessage());
 }
 //ecole:10.10.51.252
+//localhost
