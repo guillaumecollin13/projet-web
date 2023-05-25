@@ -40,14 +40,33 @@ if ($uri === "/connexion") {
         header("location:/profil");
     }
     require_once "Templates/users/inscriptionoredit.php";
-
-
-
 } elseif ($uri == "/deletprofil") {
     deleteUser($dbh);
     deletealljeuxuser($dbh);
     session_destroy();
     header("location:/");
+}elseif ($uri == "/conversation") {
+    $allusers=selectalluser($dbh);
+    //var_dump($allusers);
+    require_once "Templates/users/seeAllUser.php";
+} elseif (isset($_GET["UserID"]) && $uri === "/conversation?UserID=" . $_GET["UserID"]) {
+    $conversation=selectconversation($dbh);
+    if($conversation!==Null) {
+        var_dump('$conversation');
+        //$messages=selectMessage($dbh,$conversation);
+        //var_dump($messages);
+        require_once "Templates/users/discussions.php";
+   }
+   else {
+    //createconversation($dbh);
+    //$conversationId = $dbh->lastInsertId();
+    //createuser_conversation($dbh, $conversationId);
+    var_dump('lol');
+   }
+   if (isset($_POST["btnEnvoi"])) {
+    addmessage($dbh,$conversation);
+}
+   
 }
 
 

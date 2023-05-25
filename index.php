@@ -46,6 +46,11 @@
                         <li><a href="/mesjeux" class="colorWhite link"> mes jeux</a></li>
                     <?php endif ?>
                 </ul>
+                <ul>
+                <?php if (isset($_SESSION['user'])): ?>
+                        <li><a href="/conversation" class="colorWhite link"> discuter</a></li>
+                    <?php endif ?>
+                </ul>
             <div class="navbar-right flex">
                 <form action="#" method="get">
                     <input type="search" name="q" placeholder="Rechercher...">
@@ -53,6 +58,7 @@
                 </form>
             </div>
         </nav>
+        
         <div class="header-image">
             <svg class="header-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#272727" fill-opacity="1" d="M0,160L1440,320L1440,320L0,320Z"></path>
